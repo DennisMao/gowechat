@@ -1,37 +1,33 @@
 # gowechat
-一款由Go语言开发的微信公众号后台框架，支持被动消息回复/安全模式加密解密/客服消息/自定义菜单/定时获取Token
+一款由Go语言开发的微信公众号后台框架，通过本框架可快速搭建起微信公众号后台服务器，支持订阅号和服务号。
+由于公众号后台服务在用户交互时大部分情景需要交互响应，此处涉及的模板推荐参考接下来会开源的开发样例。
+
+# 功能
+| 功能 | 描述 | 完成状态 |
+|:-------:|:----------- |:------:|
+| TOKEN定时刷新 | 定时刷新微信服务器Token，默认刷新周期3600秒。 | ✔ |
+| 自定义菜单 | 支持自定义菜单设置，启动刷新调整 | ✔ |
+| 接收普通消息 | 接收并保存用户返回的普通消息(文本、图片、语音、视频、小视频、地理位置) | ✔ |
+| 接收事件推送 | 接收并保存用户与公众号交互产生的事件 | ✔ |
+| 被动消息回复 | 支持被动消息回复功能 | ✔ |
+| 客服消息 | 支持外部客服消息接入 | ✔ |
+| 安全模式| 支持安全模式的加密解密功能 | ✔ |
+| 模板消息| 支持模板消息发送 | ✘ |
+| 安全模式| 支持安全模式的加密解密功能 | ✘  |
+
 
 # 使用方法
-
-# 示例
+获取gowechat库
 ```
-
-	//新建服务器
-	mywechat, err := wechat.New("xx", "xx", "xx")
-	if err != nil {
-		fmt.Println(err)
-		return
-	}
-	fmt.Println(mywechat)
-
-	//开启Token刷新  1小时一次
-	go mywechat.Token_Refresh()
-
-	//菜单初始化
-	//客服创建
-	rerr := mywechat.Service_Add()
-	if rerr != nil {
-		fmt.Println(rerr)
-	}
-	//自定义菜单创建
-	rerr = mywechat.Manu_Create()
-	if rerr != nil {
-		fmt.Println(rerr)
-	}
-
-	
+go get github.com/dennismao/gowechat
 ```
+程序调用
+```
+import(
+	"github.com/dennismao/wechat"
+)
+```
+# 使用示例
 
-# 
-
-# 
+# License
+gowechat source code is licensed under the MIT Licence
