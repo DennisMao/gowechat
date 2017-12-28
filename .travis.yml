@@ -1,13 +1,8 @@
 language: go
 install: true
-addons:
-  apt:
-    packages:
-      - rsyslog
-      - xmlsec1
-      - rpm
 # test stage automatically added for each go version
 go:
+  - 1.6
   - 1.7.x
   - 1.8.x
   - 1.9.x
