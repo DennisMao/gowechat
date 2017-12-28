@@ -8,7 +8,7 @@ import (
 	"io/ioutil"
 	"net/http"
 
-	"wechat/utils"
+	"github.com/dennismao/gowechat/utils"
 )
 
 const (
