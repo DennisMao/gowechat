@@ -25,26 +25,30 @@ const (
 //	custon menu requset structure
 type CustomMenu struct {
 	Url     string
-	Content []CustomButton
+	Content CustomMenuContent
+}
+
+type CustomMenuContent struct {
+	Button []CustomButton `json:"button"`
 }
 
 //	button menu
 //	@name
 type CustomButton struct {
-	Type      string   `json:"type;omitempty"`
-	Name      string   `json:"name;omitempty"`
-	Key       string   `json:"key;omitempty"`
-	Url       string   `json:"url;omitempty"`
-	SubButton []Button `json:"sub_button;omitempty"`
+	Type      string   `json:"type"`
+	Name      string   `json:"name"`
+	Key       string   `json:"key"`
+	Url       string   `json:"url"`
+	SubButton []Button `json:"sub_button"`
 }
 
 //	button basic structure
 //	with compat on click mode and views mode
 type Button struct {
-	Type string `json:"type;omitempty"`
-	Name string `json:"name;omitempty"`
-	Key  string `json:"key;omitempty"`
-	Url  string `json:"url;omitempty"`
+	Type string `json:"type"`
+	Name string `json:"name"`
+	Key  string `json:"key"`
+	Url  string `json:"url"`
 }
 
 /*******************************************************************************************
@@ -57,7 +61,9 @@ func MenuCreate(accesstoken string, menuContent []CustomButton) (error, *CustomM
 	var menu CustomMenu
 	menu.Url = url_create
 	menu.Url += accesstoken
-	menu.Content = menuContent
+	menu.Content = CustomMenuContent{
+		Button: menuContent,
+	}
 	return nil, &menu
 }
 

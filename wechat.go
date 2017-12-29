@@ -2,8 +2,8 @@ package gowechat
 
 import (
 	"errors"
-	"fmt"
-	"time"
+
+	"github.com/astaxie/beego/logs"
 )
 
 // wechat server basic structure
@@ -29,7 +29,7 @@ func New(appid, appsecret, token string) (*Server, error) {
 
 	b, err := token_Get(appid, appsecret)
 	if err != nil {
-		fmt.Println(time.Now().String(), " 获取Token失败")
+		logs.Debug("Failed to get access_token")
 		return nil, err
 	} else {
 		GAccessToken = b.AccessToken

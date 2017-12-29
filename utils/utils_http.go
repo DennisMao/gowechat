@@ -8,6 +8,7 @@ import (
 	"compress/gzip"
 	"encoding/json"
 	"errors"
+	"fmt"
 	"io/ioutil"
 	"net/http"
 	"time"
@@ -30,6 +31,8 @@ func PostJson(url string, datas interface{}) error {
 	cli := http.Client{
 		Timeout: 2 * time.Second,
 	}
+
+	fmt.Println("请求地址:", url, "内容：", string(b))
 
 	req, err := http.NewRequest("POST", url, bytes.NewReader(b))
 	if err != nil {
