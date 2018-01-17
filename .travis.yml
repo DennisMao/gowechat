@@ -1,12 +1,12 @@
 language: go
-install: true
+
+install:
+	- go get github.com/astaxie/beego
+	
 # test stage automatically added for each go version
 go:
-  - 1.6
-  - 1.7.x
-  - 1.8.x
   - 1.9.x
   - master
 
 # script before go build
-script: go test -v ./...
+# script: go test -v ./...
