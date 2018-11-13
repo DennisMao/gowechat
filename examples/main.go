@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	_ "teaer/routers"
+	_ "github.com/dennismao/gowechat/example/routers"
 
 	"github.com/astaxie/beego"
 	"github.com/dennismao/gowechat"
